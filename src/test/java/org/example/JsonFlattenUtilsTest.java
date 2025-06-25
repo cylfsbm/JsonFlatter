@@ -38,39 +38,19 @@ public class JsonFlattenUtilsTest {
                 + "        \"city\": \"Anytown\",\n"
                 + "        \"zip\": \"12345\"\n"
                 + "    },\n"
-                + "    \"hobbies\": [\n"
-                + "        \"reading\",\n"
-                + "        \"hiking\",\n"
-                + "        \"coding\"\n"
-                + "    ],\n"
+                + "    \"hobbies\": [\"reading\", \"hiking\", \"coding\"],\n"
                 + "    \"contact\": {\n"
                 + "        \"phone\": {\n"
                 + "            \"home\": \"555-1234\",\n"
                 + "            \"work\": \"555-5678\"\n"
                 + "        },\n"
                 + "        \"email\": \"john.doe@example.com\"\n"
-                + "    },\n"
-                + "    \"test1\": [\n"
-                + "        {\n"
-                + "            \"s1\": \"s11\",\n"
-                + "            \"i1\": 10,\n"
-                + "            \"a1\": [\n"
-                + "                \"23\",\n"
-                + "                \"233\"\n"
-                + "            ]\n"
-                + "        },\n"
-                + "        {\n"
-                + "            \"s1\": \"s12\",\n"
-                + "            \"i1\": 100,\n"
-                + "            \"a1\": [\n"
-                + "                \"233\",\n"
-                + "                \"2333\"\n"
-                + "            ]\n"
-                + "        }\n"
-                + "    ]\n"
+                + "    }\n"
                 + "}";
+        // 迭代实现
         System.out.println(OBJECT_MAPPER.writerWithDefaultPrettyPrinter()
                 .writeValueAsString(JsonFlattenUtils.flattenIterate(json)));
+        // 递归实现
         System.out.println(OBJECT_MAPPER.writerWithDefaultPrettyPrinter()
                 .writeValueAsString(JsonFlattenUtils.flattenRecursive(json)));
     }
